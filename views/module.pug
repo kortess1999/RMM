@@ -1,6 +1,18 @@
 html
     head
     body
+        h1 Отправка пакета данных
+        form
+            input(type="text" id="Temperature"  value="Temperature")
+            input(type="text" id="BelowWaterLevel"  value="BelowWaterLevel")
+            input(type="text" id="UpperWaterLevel"  value="UpperWaterLevel")
+            input(type="button" id="SendDataButton"  value="Send data button")
+        h1 Отправка данных о платеже
+        form
+            input(type="text" id="PaymentTime"  value="")
+            input(type="text" id="PaymentSum"  value="")
+            input(type="text" id="Tips"  value="")
+            input(type="button" id="SendPaymentButton"  value="Send button")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js')
         script(src='http://code.jquery.com/jquery-latest.min.js')
         script

@@ -24,10 +24,18 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+//Обработка полученных данных
 const io = require('socket.io')(server);
 io.on('connection', (client) => {
   console.log(`Connected!: ${client}`);
   client.username="Anonymous";
+  client.on('common_data',(data)=>{
+    console.log(`Получили данные:${JSON.stringify(data)}`);
+  });
+  client.on('payment_data',(data)=>{
+    console.log(`Получили данные:${JSON.stringify(data)}`);
+  });
+
 });
 
 server.listen(port);
