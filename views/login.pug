@@ -1,15 +1,38 @@
-extends layout
-block content
-    div.row
-        div.col
-            form(action="/login/auth" method="POST")
-                fieldset
-                    legend Ауентификация
-                        p
-                            label(for="login") Логин
-                            input(type="text" id="login")
-                        p
-                            label(for="pass") Пароль
-                            input(type="text" id="pass")
-                p
-                    input(type="submit" value="Отправить")
+<!doctype html>
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        title Форма входа
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+        meta(name="theme-color" content="#7952b3")
+        style
+            |.bd-placeholder-img {
+            |font-size: 1.125rem;
+            |text-anchor: middle;
+            |-webkit - user - select: none;
+            |-moz - user - select: none;
+            |user-select: none;}
+            |@media (min-width: 768px) {
+            |.bd-placeholder-img-lg {
+            |font-size: 3.5rem;}}
+        link(href="signin.css" rel="stylesheet")
+    body(class="text-center")
+        div.container
+            div.row
+                div.col-3
+                div.col-6
+                    main(class="form-signin" )
+                        form(action="/login" method="POST")
+                            svg(xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16")
+                                path(d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z")
+                                path(d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26L1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z")
+                            h1(class="h3 mb-3 fw-normal") Вход
+                            label(for="inputLogin" class="visually-hidden") Логин
+                            input(type="text" name="login" id="inputLogin" class="form-control" placeholder="Логин" required autofocus)
+                            label(for="inputPassword" class="visually-hidden") Пароль
+                            input(type="password" name="pass" id="inputPassword" class="form-control" placeholder="Пароль" required)
+                            button(class="w-100 btn btn-lg btn-primary" type="submit") Вход
+                div.col-3
+    if log_err
+        script alert("Ошибка авторизации!")

@@ -1,5 +1,9 @@
 extends layout
 block content
+    if logged
+        button(onclick="window.location.href = '/quit';")  Выйти
+    else
+        button(onclick="window.location.href = '/login';")  Логин
     div.container
         div.row
             div.col
