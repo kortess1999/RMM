@@ -21,14 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/pbdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/pbdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/login.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/module.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/module.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/monitoring.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/monitoring.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +109,10 @@
       <workItem from="1616931366221" duration="6333000" />
       <workItem from="1617011568197" duration="18000" />
       <workItem from="1617211918575" duration="3502000" />
-      <workItem from="1617275764890" duration="11561000" />
+      <workItem from="1617275764890" duration="13110000" />
+      <workItem from="1617292054767" duration="654000" />
+      <workItem from="1617356044330" duration="206000" />
+      <workItem from="1617533586040" duration="17102000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -141,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616843600088</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Сделал авторизацию">
+      <created>1617288550460</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617288550460</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +172,8 @@
     <MESSAGE value="Первый коннект" />
     <MESSAGE value="Доделал отправку нескольких полей" />
     <MESSAGE value="Добавление БД" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление БД" />
+    <MESSAGE value="Сделал авторизацию" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал авторизацию" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616936221827">
@@ -175,22 +184,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="261" key="GridCell.Tab.0.bottom" timestamp="1617287341356">
+    <state width="1259" height="261" key="GridCell.Tab.0.bottom" timestamp="1617553054365">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1617287341356" />
-    <state width="1259" height="261" key="GridCell.Tab.0.center" timestamp="1617287341355">
+    <state width="1259" height="261" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1617553054365" />
+    <state width="1259" height="261" key="GridCell.Tab.0.center" timestamp="1617553054365">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1617287341355" />
-    <state width="1259" height="261" key="GridCell.Tab.0.left" timestamp="1617287341355">
+    <state width="1259" height="261" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1617553054365" />
+    <state width="1259" height="261" key="GridCell.Tab.0.left" timestamp="1617553054365">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1617287341355" />
-    <state width="1259" height="261" key="GridCell.Tab.0.right" timestamp="1617287341355">
+    <state width="1259" height="261" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1617553054365" />
+    <state width="1259" height="261" key="GridCell.Tab.0.right" timestamp="1617553054365">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1617287341355" />
+    <state width="1259" height="261" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1617553054365" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

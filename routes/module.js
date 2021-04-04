@@ -3,6 +3,26 @@ var router = express.Router();
 
 let functions=function (){
     var socket=io.connect('http://localhost:3000');
+
+    socket.on('restart',function(){alert('Перезапуск')});
+    socket.on('relogin',function (){
+        alert('Перелогин');
+        let Login=document.getElementById('login').value;
+        let Pass=document.getElementById('password').value;
+        socket.emit('login_data',{
+            login:Login,
+            password:Pass,
+        });
+    });
+
+    LoginButton.onclick=function(){
+        let Login=document.getElementById('login').value;
+        let Pass=document.getElementById('password').value;
+        socket.emit('login_data',{
+            login:Login,
+            password:Pass,
+        });
+    }
     SendDataButton.onclick=function(){
         let Temperature=document.getElementById('Temperature').value;
         let BelowWaterLevel=document.getElementById('BelowWaterLevel').value;

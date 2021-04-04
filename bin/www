@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('rmm:server');
 var http = require('http');
+const moment = require('moment');
 
 /**
  * Get port from environment and store in Express.
@@ -24,12 +25,47 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+//Данные по модулям
+var Tmodules={};
 //Обработка полученных данных
 const io = require('socket.io')(server);
 io.on('connection', (client) => {
-  console.log(`Connected!: ${client}`);
-  client.username="Anonymous";
+  console.log(`Connected!: ${Object.keys(client)}`);
+  client.on('login_data',(data)=>{
+    console.log(`Получили данные логина:${JSON.stringify(data)}`);
+    client.login=data.login;
+    client.password=data.password;
+    Tmodules[client.login]={
+      module:client,
+      login:data.login,
+      password:data.password,
+      lastContact:moment(),
+      state:{},
+      functions:{
+        relogin(){
+          this.module.emit('relogin');
+        },
+        checkState(){
+          this.module.emit('checkState');
+        },
+        restart(){
+          this.module.emit('restart');
+        }
+      }
+    };
+  });
   client.on('common_data',(data)=>{
+    if(typeof client.login=="undefined")
+    {
+      client.emit('relogin');
+      return
+    }
+    //Изменение состояния
+    Tmodules[client.login].lastContact=moment();
+    Tmodules[client.login].state.temperature=data.temperature;
+    Tmodules[client.login].state.BelowWaterLevel=data.BelowWaterLevel;
+    Tmodules[client.login].state.UpperWaterLevel=data.UpperWaterLevel;
+    //Здесь добавить запрос на добавление в БД
     console.log(`Получили данные:${JSON.stringify(data)}`);
   });
   client.on('payment_data',(data)=>{
