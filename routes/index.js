@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
-//let modules_data = require('../')
+let DB =require('../database/pbdb');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
   if(!req.session.logged)
   {
     res.redirect('/login');
     return
   }
-  res.render('monitoring',req.session);
+  let modules=require('../bin/www');
+  let Logs = await DB.query('SELECT id,address FROM modules');
+  console.log(Logs);
+  res.render('monitoring',{session:req.session,modules:modules,modules_list:Logs});
 });
 router.get('/quit', function(req, res, next) {
   console.log(req.session);

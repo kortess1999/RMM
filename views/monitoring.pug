@@ -1,13 +1,12 @@
 extends layout
 block content
-    script(src="https://code.jquery.com/jquery-3.5.1.js")
-    script(src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js")
     script(src="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css")
+    script(src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js")
     script
         | $(document).ready(function() {
         |     $('#data_table').DataTable( {
-        |         "order": [[ 3, "desc" ]],
-        |language:{
+        |       "order":[[1,'asc'],[0,'asc']],
+        |       language:{
         |   "decimal":        "",
         |   "emptyTable":     "Нет данных в таблице",
         |   "info":           "Предоставляет с _START_ по _END_ из _TOTAL_ элементов",
@@ -32,12 +31,7 @@ block content
         |   }}
         |   } );
         | } );
-        |function blink(elem){
-        |   if(elem.bgColor == "red") document.bgColor = "white";
-        |   else document.bg_color = "red";
-        |   setTimeout(blink(elem),500);
-        |}
-    if logged
+    if session.logged
         button(onclick="window.location.href = '/quit';")  Выйти
     else
         button(onclick="window.location.href = '/login';")  Логин
@@ -47,27 +41,24 @@ block content
                 table(class="table table-dark" id="data_table")
                     thead
                         tr
-                            th(scope='col') #
                             th(scope='col') №Модуля
                             th(scope='col') Состояние
-                            th(scope='col') Связь
                             th(scope='col') Адрес
                     tbody
-                        tr
-                            th(scope="row") 1
-                            th(scope="row") 2
-                            th(scope="row") 3
-                            th(scope="row") 4
-                            th(scope="row") 5
-                        tr
-                            th(scope="row") 6
-                            th(scope="row") 7
-                            th(scope="row") 8
-                            th(scope="row") 9
-                            th(scope="row") 10
-                        tr
-                            th(scope="row") 11
-                            th(scope="row") 13
-                            th(scope="row") 12
-                            th(scope="row") 14
-                            th(scope="row") 15
+                        each mod in modules_list
+                            if modules[mod.id]
+                                if modules[mod.id].errorType!==''
+                                    tr.table-danger
+                                        th(scope="row")=mod.id
+                                        th(scope="row")="Авария:"+modules[mod.id].errorType
+                                        th(scope="row")=mod.address
+                                else
+                                    tr
+                                        th(scope="row")=mod.id
+                                        th(scope="row") Норма
+                                        th(scope="row")=mod.address
+                            else
+                                tr.table-danger
+                                    th(scope="row")=mod.id
+                                    th(scope="row") Авария: Нет связи
+                                    th(scope="row")=mod.address

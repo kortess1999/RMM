@@ -26,13 +26,42 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 //Данные по модулям
+const DB=require('../database/pbdb');
 var Tmodules={};
+//Проверка ошибок
+async function ParseAndImportErrors(mod){
+  if(!mod.errorType.length) return;
+  if(mod.errorType[0]==='@')mod.errorType=mod.errorType.substr(1);
+  const errors=mod.errorType.split('@');
+  for(let i=0;i<errors.length;i++)
+  {
+    let isSolved=await DB.query(`SELECT create_time FROM modules_errors WHERE module_id=${mod.login} AND err_type='${errors[i]}' AND solve_time IS NULL`);
+    console.log(isSolved);
+    if(!isSolved.length)
+      await DB.query(`INSERT INTO modules_errors (module_id,err_type,create_time) VALUES (${mod.login},'${errors[i]}','${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}')`);
+  }
+  mod.errors=errors.join(', ');
+}
+async function checkModulePass(login,pass){
+    let password=await DB.query(`SELECT password FROM modules WHERE id=${login}`);
+  //console.log(password);
+  if(password.password===pass) return true;
+    return false;
+}
+
 //Обработка полученных данных
 const io = require('socket.io')(server);
 io.on('connection', (client) => {
   console.log(`Connected!: ${Object.keys(client)}`);
   client.on('login_data',(data)=>{
     console.log(`Получили данные логина:${JSON.stringify(data)}`);
+    if(!checkModulePass(data.login,data.password))
+    {
+      client.emit('relogin');
+      return;
+    }
+    else
+      client.emit('login:ok');
     client.login=data.login;
     client.password=data.password;
     Tmodules[client.login]={
@@ -40,6 +69,7 @@ io.on('connection', (client) => {
       login:data.login,
       password:data.password,
       lastContact:moment(),
+      errorType:'Нет данных',
       state:{},
       functions:{
         relogin(){
@@ -60,11 +90,30 @@ io.on('connection', (client) => {
       client.emit('relogin');
       return
     }
+    console.log(`Получили данные:${data}`);
     //Изменение состояния
     Tmodules[client.login].lastContact=moment();
-    Tmodules[client.login].state.temperature=data.temperature;
-    Tmodules[client.login].state.BelowWaterLevel=data.BelowWaterLevel;
-    Tmodules[client.login].state.UpperWaterLevel=data.UpperWaterLevel;
+    Tmodules[client.login].state.temperature=parseFloat(data.temperature);
+    Tmodules[client.login].state.belowWaterLevel=parseInt(data.belowWaterLevel);
+    Tmodules[client.login].state.upperWaterLevel=parseInt(data.upperWaterLevel);
+    Tmodules[client.login].state.visits=parseInt(data.visits);
+    //Проверка состояния модуля
+    Tmodules[client.login].errorType="";
+    //температура
+    if(typeof Tmodules[client.login].state.temperature==="number")
+    {
+      if(Tmodules[client.login].state.temperature>50)Tmodules[client.login].errorType+='@Высокая температура';
+      if(Tmodules[client.login].state.temperature<-20)Tmodules[client.login].errorType+='@Низкая температура';
+    }
+    else Tmodules[client.login].errorType+='@Нет данных по температуре';
+
+    //уровень воды
+    if([0,1].includes(Tmodules[client.login].state.belowWaterLevel)&&[0,1].includes(Tmodules[client.login].state.upperWaterLevel)) {
+      if (!Tmodules[client.login].state.belowWaterLevel) Tmodules[client.login].errorType += '@Мало воды';
+      if (Tmodules[client.login].state.upperWaterLevel) Tmodules[client.login].errorType += '@Избыток воды';
+    }
+    else Tmodules[client.login].errorType+='@Нет данных по уровню воды';
+    ParseAndImportErrors(Tmodules[client.login]);
     //Здесь добавить запрос на добавление в БД
     console.log(`Получили данные:${JSON.stringify(data)}`);
   });
@@ -73,6 +122,7 @@ io.on('connection', (client) => {
   });
 
 });
+module.exports=Tmodules;
 
 server.listen(port);
 server.on('error', onError);

@@ -9,7 +9,7 @@ module.exports={
     ///Выполнение запроса для PostgreSQL
     query: async (query)=>{
         return await db.any(query)
-            .then(console.log(`Query '${query.substr(0,20)}...' executed`))
+            .then(console.log(`Query '${query.substr(0)}...' executed`))
             .catch((e)=>{console.log(`Error of query:${query.substr(0,30)}\n${e}`)});
     },
 }
