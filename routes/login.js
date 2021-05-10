@@ -1,8 +1,8 @@
 let express = require('express');
 let router = express.Router();
 let DB=require('../database/pbdb');
-async function checkPassword(login,password){
-    let result=await DB.query(`SELECT password FROM users where user_name='${login}';`);
+async function checkPassword(login){
+    let result=await DB.query(`SELECT password FROM users where log='${login}';`);
     return result;
 }
 /* GET home page. */

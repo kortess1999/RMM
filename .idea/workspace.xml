@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/methods/JsonToCsv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/reports.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/pbdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/pbdb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/monitoring.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/monitoring.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Pug File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -112,7 +111,25 @@
       <workItem from="1617356044330" duration="206000" />
       <workItem from="1617533586040" duration="17933000" />
       <workItem from="1617621131712" duration="76000" />
-      <workItem from="1618056236162" duration="18817000" />
+      <workItem from="1618056236162" duration="18978000" />
+      <workItem from="1618222711046" duration="29000" />
+      <workItem from="1618340196180" duration="426000" />
+      <workItem from="1618418838092" duration="11000" />
+      <workItem from="1618591139241" duration="2895000" />
+      <workItem from="1618655948412" duration="1356000" />
+      <workItem from="1618825320193" duration="90000" />
+      <workItem from="1618934791327" duration="208000" />
+      <workItem from="1619017237897" duration="607000" />
+      <workItem from="1619355437782" duration="1390000" />
+      <workItem from="1619526824321" duration="19000" />
+      <workItem from="1619542327022" duration="5526000" />
+      <workItem from="1619622356500" duration="596000" />
+      <workItem from="1619706198150" duration="1707000" />
+      <workItem from="1619777396279" duration="451000" />
+      <workItem from="1620301042244" duration="18334000" />
+      <workItem from="1620385816809" duration="595000" />
+      <workItem from="1620637527466" duration="8595000" />
+      <workItem from="1620647136911" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -156,7 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617553299096</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Работаю над взаимодействием с БД и фиксы JS">
+      <created>1618077656724</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618077656724</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Дебаг функции добавления ошибок в базу данных">
+      <created>1620315799180</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620315799181</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +212,9 @@
     <MESSAGE value="Добавление БД" />
     <MESSAGE value="Сделал авторизацию" />
     <MESSAGE value="Фикс таблицы, добавление фич, мелкие изменения в бд." />
-    <option name="LAST_COMMIT_MESSAGE" value="Фикс таблицы, добавление фич, мелкие изменения в бд." />
+    <MESSAGE value="Работаю над взаимодействием с БД и фиксы JS" />
+    <MESSAGE value="Дебаг функции добавления ошибок в базу данных" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дебаг функции добавления ошибок в базу данных" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -192,30 +225,30 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="261" key="GridCell.Tab.0.bottom" timestamp="1618077503966">
+    <state width="1259" height="341" key="GridCell.Tab.0.bottom" timestamp="1620648838550">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1618077503966" />
-    <state width="1259" height="261" key="GridCell.Tab.0.center" timestamp="1618077503966">
+    <state width="1259" height="341" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1620648838550" />
+    <state width="1259" height="341" key="GridCell.Tab.0.center" timestamp="1620648838549">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1618077503966" />
-    <state width="1259" height="261" key="GridCell.Tab.0.left" timestamp="1618077503966">
+    <state width="1259" height="341" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1620648838549" />
+    <state width="1259" height="341" key="GridCell.Tab.0.left" timestamp="1620648838549">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1618077503966" />
-    <state width="1259" height="261" key="GridCell.Tab.0.right" timestamp="1618077503966">
+    <state width="1259" height="341" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1620648838549" />
+    <state width="1259" height="341" key="GridCell.Tab.0.right" timestamp="1620648838550">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="261" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1618077503966" />
+    <state width="1259" height="341" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1620648838550" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1616333289449" />
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1617553306212">
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1618077658274">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1617553306212" />
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1618077658274" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1617215171371">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
