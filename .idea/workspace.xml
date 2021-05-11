@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/methods/JsonToCsv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/reports.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bg_image.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/monitoring.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/monitoring.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +42,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1q4JlbosEgtGlGFjSaxiFVBUImy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -57,13 +59,14 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Учёба\Дипломная работа\RMM" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Учёба\Дипломная работа\RMM\public" />
+      <recent name="G:\Учёба\Дипломная работа\RMM\reports" />
       <recent name="G:\Учёба\Дипломная работа\RMM\routes" />
       <recent name="G:\Учёба\Дипломная работа\RMM\views" />
-      <recent name="G:\Учёба\Дипломная работа\RMM" />
-      <recent name="G:\Учёба\Дипломная работа\RMM\bin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Учёба\Дипломная работа\RMM" />
     </key>
   </component>
@@ -129,7 +132,9 @@
       <workItem from="1620301042244" duration="18334000" />
       <workItem from="1620385816809" duration="595000" />
       <workItem from="1620637527466" duration="8595000" />
-      <workItem from="1620647136911" duration="1607000" />
+      <workItem from="1620647136911" duration="1698000" />
+      <workItem from="1620726880949" duration="411000" />
+      <workItem from="1620738309759" duration="13383000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -187,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620315799181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла.">
+      <created>1620648919522</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1620648919522</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +218,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="gitingore" />
     <MESSAGE value="Первый коннект" />
     <MESSAGE value="Доделал отправку нескольких полей" />
@@ -214,7 +227,8 @@
     <MESSAGE value="Фикс таблицы, добавление фич, мелкие изменения в бд." />
     <MESSAGE value="Работаю над взаимодействием с БД и фиксы JS" />
     <MESSAGE value="Дебаг функции добавления ошибок в базу данных" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дебаг функции добавления ошибок в базу данных" />
+    <MESSAGE value="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла." />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -225,22 +239,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="341" key="GridCell.Tab.0.bottom" timestamp="1620648838550">
+    <state width="1259" height="341" key="GridCell.Tab.0.bottom" timestamp="1620753062566">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1620648838550" />
-    <state width="1259" height="341" key="GridCell.Tab.0.center" timestamp="1620648838549">
+    <state width="1259" height="341" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
+    <state width="1259" height="341" key="GridCell.Tab.0.center" timestamp="1620753062566">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1620648838549" />
-    <state width="1259" height="341" key="GridCell.Tab.0.left" timestamp="1620648838549">
+    <state width="1259" height="341" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
+    <state width="1259" height="341" key="GridCell.Tab.0.left" timestamp="1620753062566">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1620648838549" />
-    <state width="1259" height="341" key="GridCell.Tab.0.right" timestamp="1620648838550">
+    <state width="1259" height="341" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
+    <state width="1259" height="341" key="GridCell.Tab.0.right" timestamp="1620753062566">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1620648838550" />
+    <state width="1259" height="341" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

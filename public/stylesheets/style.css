@@ -1,8 +1,13 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 45px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(/bg_image.jpg);
 }
-
+label {
+  font-size: large;
+}
 a {
   color: #00B7FF;
+  font-size: large;
 }
