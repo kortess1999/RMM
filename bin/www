@@ -31,13 +31,13 @@ var Tmodules={};
 //Проверка ошибок
 async function ParseAndImportErrors(mod){
   //Получение списка текущих аварий
-  let DbErrors=await DB.query(`SELECT err_type FROM modules_errors WHERE module_id=${mod.login} AND solve_time IS NULL`);
+  let DbErrors=await DB.query(`SELECT err_type FROM modules_errors WHERE module_id=${mod.login} AND solve_at IS NULL`);
   if(mod.errorType[0]==='@')mod.errorType=mod.errorType.substr(1);
   let errors=mod.errorType.length ? mod.errorType.split('@') : [];
   for (let i=0;i<DbErrors.length;i++){
     //Изменить время решения аварии
     if(!errors.includes(DbErrors[i].err_type))
-      await DB.query(`UPDATE modules_errors SET solve_time='${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}' where module_id=${mod.login} AND err_type='${DbErrors[i].err_type}' AND solve_time IS NULL`);
+      await DB.query(`UPDATE modules_errors SET solve_at='${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}' where module_id=${mod.login} AND err_type='${DbErrors[i].err_type}' AND solve_time IS NULL`);
     //Удаление и так добавленных аварий
     else
       delete errors[errors.indexOf(DbErrors[i].err_type)];
@@ -45,7 +45,7 @@ async function ParseAndImportErrors(mod){
   //Добавление новых аварий
   for(let i=0;i<errors.length;i++)
     if(errors[i])
-      await DB.query(`INSERT INTO modules_errors (module_id,err_type,create_time) VALUES (${mod.login},'${errors[i]}','${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}')`);
+      await DB.query(`INSERT INTO modules_errors (module_id,err_type,create_at) VALUES (${mod.login},'${errors[i]}','${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}')`);
   mod.errorType=mod.errorType.length ? mod.errorType.split('@').join(', '):'';
 }
 async function checkModulePass(login,pass){

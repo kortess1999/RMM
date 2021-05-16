@@ -11,7 +11,6 @@ router.get('/:filename', async function(req, res, next) {
         const root=__dirname.split('routes').join('');
         let file_path = `${root}reports/${req.params.filename}.csv`.split('\\').join('/');
 
-        console.log(fs.existsSync(file_path),file_path);
         if(fs.existsSync(file_path))
             await res.download(file_path)
         else

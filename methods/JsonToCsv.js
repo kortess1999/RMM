@@ -1,5 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
+const encoding = require('encoding');
 function getHeaders(json){
     let headers=[];
     //Получение списка заголовков
@@ -38,8 +39,10 @@ function JsonToCsv(json={},path='reports'){
     path = `./reports/${path}.csv`;
     const headers = getHeaders(json);
     const table = buildTable(json,headers);
-    const file_string = getCsvFile(table);
-    fs.writeFileSync(path,file_string);
+    let file_string = getCsvFile(table);
+    //Исправление кодировки
+    file_string = encoding.convert(file_string, 'WINDOWS-1251', 'UTF-8');
+    fs.writeFileSync(path,file_string,{encoding:'utf8'});
     return path;
 }
 module.exports=JsonToCsv;
