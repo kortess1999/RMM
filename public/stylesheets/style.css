@@ -6,6 +6,23 @@ body {
 }
 label {
   font-size: large;
+  color: aliceblue;
+}
+dTable{
+  font-size: large;
+  color: aliceblue;
+}
+form{
+  padding: 25px;
+}
+hr {
+  border: 0;
+  height: 3px;
+  background: #fff;
+}
+.scrollList {
+  height:150px;
+  overflow-y: scroll;
 }
 a {
   color: #00B7FF;

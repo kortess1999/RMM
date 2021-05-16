@@ -3,10 +3,11 @@ const moment = require('moment');
 function getHeaders(json){
     let headers=[];
     //Получение списка заголовков
-    json.forEach(row=>{
-        for(let col in row)
-            if(!headers.includes(col)) headers.push(col);
-    });
+    if(json.length)
+        json.forEach(row=>{
+            for(let col in row)
+                if(!headers.includes(col)) headers.push(col);
+        });
     return headers;
 }
 function buildTable(json,headers){

@@ -20,9 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/bg_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constants/reportsList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/methods/getReportByQuery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/alertReport.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/visitsReport.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/waterSpendReport.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/reports.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/JsonToCsv.js" beforeDir="false" afterPath="$PROJECT_DIR$/methods/JsonToCsv.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/reports.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/monitoring.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/monitoring.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +143,15 @@
       <workItem from="1620637527466" duration="8595000" />
       <workItem from="1620647136911" duration="1698000" />
       <workItem from="1620726880949" duration="411000" />
-      <workItem from="1620738309759" duration="13383000" />
+      <workItem from="1620738309759" duration="14517000" />
+      <workItem from="1620810818163" duration="43000" />
+      <workItem from="1620819310844" duration="4051000" />
+      <workItem from="1620824241171" duration="177000" />
+      <workItem from="1620825399167" duration="12310000" />
+      <workItem from="1620896273867" duration="241000" />
+      <workItem from="1620911142035" duration="6264000" />
+      <workItem from="1620986272042" duration="603000" />
+      <workItem from="1620995821831" duration="14017000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -199,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620648919522</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Добавление фона и навигационной панели">
+      <created>1620753400475</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620753400475</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +252,8 @@
     <MESSAGE value="Работаю над взаимодействием с БД и фиксы JS" />
     <MESSAGE value="Дебаг функции добавления ошибок в базу данных" />
     <MESSAGE value="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла." />
+    <MESSAGE value="Добавление фона и навигационной панели" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление фона и навигационной панели" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -239,22 +264,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="341" key="GridCell.Tab.0.bottom" timestamp="1620753062566">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621016684191">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
-    <state width="1259" height="341" key="GridCell.Tab.0.center" timestamp="1620753062566">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621016684191" />
+    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621016684191">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
-    <state width="1259" height="341" key="GridCell.Tab.0.left" timestamp="1620753062566">
+    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621016684191" />
+    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621016684191">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
-    <state width="1259" height="341" key="GridCell.Tab.0.right" timestamp="1620753062566">
+    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621016684191" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621016684191">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="341" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1620753062566" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621016684191" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -263,9 +288,9 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1618077658274" />
-    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1617215171371">
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1620916202159">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1617215171371" />
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1620916202159" />
   </component>
 </project>

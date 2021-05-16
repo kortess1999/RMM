@@ -1,8 +1,10 @@
 const express = require('express');
 const fs = require('fs');
 let router = express.Router();
+let DB =require('../database/pbdb');
 
-const jsonToCsv = require('../methods/JsonToCsv');
+const reportsList = require('../constants/reportsList');
+const modules = require('../bin/www');
 
 router.get('/:filename', async function(req, res, next) {
     try{
@@ -18,6 +20,19 @@ router.get('/:filename', async function(req, res, next) {
         console.log(`Ошибка:${e}`);
         res.end();
     }
-
+});
+router.get('/', async function(req, res, next) {
+    try {
+        if(!req.session.logged)
+        {
+            res.redirect('/login');
+            return
+        }
+        const modulesList = await DB.query('SELECT id,address FROM modules');
+        res.render('reports',{session:req.session,reports:reportsList,modules:modulesList});
+    }catch (e) {
+        console.log(`Ошибка:${e}`);
+        res.end();
+    }
 });
 module.exports = router;
