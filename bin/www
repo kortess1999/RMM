@@ -27,6 +27,7 @@ var server = http.createServer(app);
  */
 //Данные по модулям
 const DB=require('../database/pbdb');
+const queries = require('../database/queries');
 var Tmodules={};
 //Проверка ошибок
 async function ParseAndImportErrors(mod){
@@ -37,7 +38,7 @@ async function ParseAndImportErrors(mod){
   for (let i=0;i<DbErrors.length;i++){
     //Изменить время решения аварии
     if(!errors.includes(DbErrors[i].err_type))
-      await DB.query(`UPDATE modules_errors SET solve_at='${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}' where module_id=${mod.login} AND err_type='${DbErrors[i].err_type}' AND solve_time IS NULL`);
+      await DB.query(`UPDATE modules_errors SET solve_at='${mod.lastContact.format('YYYY-MM-DD HH:mm:ss')}' where module_id=${mod.login} AND err_type='${DbErrors[i].err_type}' AND solve_at IS NULL`);
     //Удаление и так добавленных аварий
     else
       delete errors[errors.indexOf(DbErrors[i].err_type)];
@@ -96,20 +97,22 @@ io.on('connection', (client) => {
       client.emit('relogin');
       return
     }
-    console.log(`Получили данные:${data}`);
+    console.log(`Получили данные:${JSON.stringify(data)}`);
     //Изменение состояния
     Tmodules[client.login].lastContact=moment();
-    Tmodules[client.login].state.temperature=parseFloat(data.temperature);
-    Tmodules[client.login].state.belowWaterLevel=parseInt(data.belowWaterLevel);
-    Tmodules[client.login].state.upperWaterLevel=parseInt(data.upperWaterLevel);
-    Tmodules[client.login].state.visits=parseInt(data.visits);
+    Tmodules[client.login].state.temperature=isNaN(parseInt(data.temperature))?null:parseInt(data.temperature);
+    Tmodules[client.login].state.belowWaterLevel=isNaN(parseInt(data.belowWaterLevel))?null:parseInt(data.belowWaterLevel);
+    Tmodules[client.login].state.upperWaterLevel=isNaN(parseInt(data.upperWaterLevel))?null:parseInt(data.upperWaterLevel);
+    Tmodules[client.login].state.visits=isNaN(parseInt(data.visits))?null:parseInt(data.visits);
     //Проверка состояния модуля
     Tmodules[client.login].errorType="";
+    //посещения
+    if(typeof Tmodules[client.login].state.visits != "number" || Tmodules[client.login].state.visits < 0) Tmodules[client.login].errorType += '@Нет данных по посещениям'
     //температура
     if(typeof Tmodules[client.login].state.temperature==="number")
     {
       if(Tmodules[client.login].state.temperature>50)Tmodules[client.login].errorType+='@Высокая температура';
-      if(Tmodules[client.login].state.temperature<-20)Tmodules[client.login].errorType+='@Низкая температура';
+      if(Tmodules[client.login].state.temperature<-10)Tmodules[client.login].errorType+='@Низкая температура';
     }
     else Tmodules[client.login].errorType+='@Нет данных по температуре';
 
@@ -119,9 +122,18 @@ io.on('connection', (client) => {
       if (Tmodules[client.login].state.upperWaterLevel) Tmodules[client.login].errorType += '@Избыток воды';
     }
     else Tmodules[client.login].errorType+='@Нет данных по уровню воды';
+    console.log(Tmodules[client.login].errorType);
+    //Проверка на ошибки и добавка их в БД
     ParseAndImportErrors(Tmodules[client.login]);
-    //Здесь добавить запрос на добавление в БД
-    console.log(`Получили данные:${JSON.stringify(data)}`);
+    //запрос на добавление в БД
+    DB.query(queries.moduleDataInsert({
+      module_id:client.login,
+      time:Tmodules[client.login].lastContact.format('YYYY-MM-DD HH:mm:ss.000000'),
+      temperature:Tmodules[client.login].state.temperature,
+      below_water_lvl:!!Tmodules[client.login].state.belowWaterLevel,
+      upper_water_lvl:!!Tmodules[client.login].state.upperWaterLevel,
+      visits:Tmodules[client.login].state.visits
+    }));
   });
   client.on('payment_data',(data)=>{
     console.log(`Получили данные:${JSON.stringify(data)}`);

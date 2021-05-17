@@ -23,11 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/queries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/JsonToCsv.js" beforeDir="false" afterPath="$PROJECT_DIR$/methods/JsonToCsv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/alertReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/reports/alertReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/reports.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/module.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/module.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +144,9 @@
       <workItem from="1620911142035" duration="6264000" />
       <workItem from="1620986272042" duration="603000" />
       <workItem from="1620995821831" duration="14017000" />
-      <workItem from="1621165901560" duration="6389000" />
+      <workItem from="1621165901560" duration="7089000" />
+      <workItem from="1621241403910" duration="499000" />
+      <workItem from="1621263187896" duration="10942000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -226,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621166607948</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям.">
+      <created>1621173500107</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621173500107</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +263,8 @@
     <MESSAGE value="Добавил функционал записи JSOn в CSV и сделал возможность загрузки файла." />
     <MESSAGE value="Добавление фона и навигационной панели" />
     <MESSAGE value="Доделываем фронт+отчёты(без запросов)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доделываем фронт+отчёты(без запросов)" />
+    <MESSAGE value="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям." />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям." />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -268,30 +275,30 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621172748396">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621274503985">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621172748396" />
-    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621172748396">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
+    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621274503985">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621172748396" />
-    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621172748396">
+    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
+    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621274503985">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621172748396" />
-    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621172748396">
+    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621274503985">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621172748396" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1616333289449" />
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621166923484">
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621173501504">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621166923484" />
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621173501504" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1620916202159">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

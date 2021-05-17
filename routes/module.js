@@ -27,10 +27,12 @@ let functions=function (){
         let Temperature=document.getElementById('Temperature').value;
         let BelowWaterLevel=document.getElementById('BelowWaterLevel').value;
         let UpperWaterLevel=document.getElementById('UpperWaterLevel').value;
+        let visits=document.getElementById('visits').value;
             socket.emit('common_data',{
                 temperature:Temperature,
                 belowWaterLevel:BelowWaterLevel,
-                upperWaterLevel:UpperWaterLevel
+                upperWaterLevel:UpperWaterLevel,
+                visits:visits
             });
     }
     SendPaymentButton.onclick=function(){
