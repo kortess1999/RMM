@@ -8,8 +8,8 @@ async function GetReportByQuery(obj) {
         case 'По посещениям':
             return jsonToCsv(await DB.query(queries.visitsReport(obj)),'visitsReport');
             break;
-        case "По расходу воды":
-            return jsonToCsv(await DB.query(queries.waterSpendReport(obj)),'waterSpendReport');
+        case "По обслуживанию модулей":
+            return jsonToCsv(await DB.query(queries.servicesReport(obj)),'servicesReport');
             break;
         case "По авариям":
             return jsonToCsv(await DB.query(queries.alertReport(obj)),'alertReport');

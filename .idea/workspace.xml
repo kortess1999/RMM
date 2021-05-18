@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/reports/servicesReport.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/reportsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/reportsList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/getReportByQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/methods/getReportByQuery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/module.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/module.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/module.pug" afterDir="false" />
     </list>
@@ -146,7 +149,9 @@
       <workItem from="1620995821831" duration="14017000" />
       <workItem from="1621165901560" duration="7089000" />
       <workItem from="1621241403910" duration="499000" />
-      <workItem from="1621263187896" duration="10942000" />
+      <workItem from="1621263187896" duration="11749000" />
+      <workItem from="1621331960153" duration="208000" />
+      <workItem from="1621351256298" duration="9782000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -232,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621173500107</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Добавление посещений, добавление отчёта по посещениям.">
+      <created>1621277676712</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621277676712</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +276,8 @@
     <MESSAGE value="Добавление фона и навигационной панели" />
     <MESSAGE value="Доделываем фронт+отчёты(без запросов)" />
     <MESSAGE value="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям." />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям." />
+    <MESSAGE value="Добавление посещений, добавление отчёта по посещениям." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление посещений, добавление отчёта по посещениям." />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -275,30 +288,30 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621274503985">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621362566830">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
-    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621274503985">
+    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
+    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621362566830">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
-    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621274503985">
+    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
+    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621362566830">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
-    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621274503985">
+    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621362566830">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621274503985" />
+    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1616333289449" />
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621173501504">
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621277678135">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621173501504" />
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621277678135" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1620916202159">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

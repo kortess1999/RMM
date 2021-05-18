@@ -13,12 +13,12 @@ html
             input(type="text" id="UpperWaterLevel"  value="UpperWaterLevel")
             input(type="text" id="visits"  value="visits")
             input(type="button" id="SendDataButton"  value="Send data button")
-        h1 Отправка данных о платеже
+        h1 Отправка данных об обслуживаниях
         form
-            input(type="text" id="PaymentTime"  value="")
-            input(type="text" id="PaymentSum"  value="")
-            input(type="text" id="Tips"  value="")
-            input(type="button" id="SendPaymentButton"  value="Send button")
+            input(type="number" id="user_id"  value="")
+            input(type="text" id="type"  value="")
+            input(type="text" id="message"  value="")
+            input(type="button" id="SendServiceButton"  value="Send button")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js')
         script(src='http://code.jquery.com/jquery-latest.min.js')
         script

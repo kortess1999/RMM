@@ -1,6 +1,6 @@
 const reportsList = [
     "По посещениям",
-    "По расходу воды",
+    "По обслуживанию модулей",
     "По авариям"
 ];
 module.exports = reportsList;

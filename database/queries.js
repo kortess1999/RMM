@@ -15,14 +15,25 @@ const queries={
             below_water_lvl, upper_water_lvl, visits) 
             VALUES (${module_id},'${time}',${temperature},
             ${below_water_lvl},${upper_water_lvl},${visits})`},
+    servicesInsert: (obj= {})=>{
+        let {
+            module_id = 1,
+            user_id = 1,
+            date = moment().format('YYYY-MM-DD HH:mm:ss.000000'),
+            message = '',
+            type = ''
+        } = obj;
+        return `INSERT INTO services (
+        user_id, module_id, date, message, type
+        ) VALUES (${user_id},${module_id},'${date}','${message}','${type}');`},
     visitsReport: (obj= {})=>{
         let {
             from = moment().subtract(1, 'week'),
             to = moment(),
             modules=[]
         } = obj;
-        from = moment(from,'DD-MM-YYYY').format('YYYY-MM-DD HH:mm:ss.000000');
-        to = moment(to,'DD-MM-YYYY').format('YYYY-MM-DD HH:mm:ss.000000');
+        from = moment(from,'DD-MM-YYYY').startOf('day').format('YYYY-MM-DD HH:mm:ss.000000');
+        to = moment(to,'DD-MM-YYYY').endOf("day").format('YYYY-MM-DD HH:mm:ss.000000');
         modules=modules.join(", ");
         return `SELECT 
             module_id as "ID модуля",
@@ -31,7 +42,22 @@ const queries={
         FROM module_data
         WHERE module_id IN (${modules})
         AND time BETWEEN '${from}' AND '${to}'`},
-    waterSpendReport: (obj= {})=>{return ``},
+    servicesReport: (obj= {})=>{
+        let {
+            from = moment().subtract(1, 'week'),
+            to = moment(),
+            modules = [],
+        } = obj;
+        from = moment(from,'DD-MM-YYYY').startOf('day').format('YYYY-MM-DD HH:mm:ss.000000');
+        to = moment(to,'DD-MM-YYYY').endOf("day").format('YYYY-MM-DD HH:mm:ss.000000');
+        modules=modules.join(", ");
+        return `SELECT 
+        type as "Тип обслуживания",
+        to_char(date, 'DD-MM-YYYY HH24:MM:SS') as "Дата обслуживания",
+        message as "Дополнительная информация" 
+        FROM services
+        WHERE module_id IN (${modules})
+        AND date BETWEEN '${from}' AND '${to}'`},
     alertReport: (obj= {})=>{
         console.log(obj);
         let {
@@ -39,8 +65,8 @@ const queries={
             to = moment(),
             modules=[]
         } = obj;
-        from = moment(from,'DD-MM-YYYY').format('YYYY-MM-DD HH:mm:ss.000000');
-        to = moment(to,'DD-MM-YYYY').format('YYYY-MM-DD HH:mm:ss.000000');
+        from = moment(from,'DD-MM-YYYY').startOf('day').format('YYYY-MM-DD HH:mm:ss.000000');
+        to = moment(to,'DD-MM-YYYY').endOf("day").format('YYYY-MM-DD HH:mm:ss.000000');
         modules=modules.join(", ");
         return `SELECT 
             module_id as "ID модуля",

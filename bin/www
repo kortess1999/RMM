@@ -135,8 +135,19 @@ io.on('connection', (client) => {
       visits:Tmodules[client.login].state.visits
     }));
   });
-  client.on('payment_data',(data)=>{
-    console.log(`Получили данные:${JSON.stringify(data)}`);
+  client.on('service_data',(data)=>{
+    console.log(`Получили данные обслуживания:${JSON.stringify(data)}`);
+    let {
+      user_id = 1,
+      message = '',
+      type = '',
+    } = data;
+    DB.query(queries.servicesInsert({
+      module_id: client.login,
+      user_id: user_id,
+      date: moment().format('YYYY-MM-DD HH:mm:ss.000000'),
+      message: message,
+      type: type}));
   });
 
 });

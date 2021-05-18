@@ -35,14 +35,14 @@ let functions=function (){
                 visits:visits
             });
     }
-    SendPaymentButton.onclick=function(){
-        let PaymentTime=document.getElementById('PaymentTime').value;
-        let PaymentSum=document.getElementById('PaymentSum').value;
-        let Tips=document.getElementById('Tips').value;
-        socket.emit('payment_data',{
-            PaymentTime:PaymentTime,
-            PaymentSum:PaymentSum,
-            Tips:Tips
+    SendServiceButton.onclick=function(){
+        let user_id=document.getElementById('user_id').value;
+        let type=document.getElementById('type').value;
+        let message=document.getElementById('message').value;
+        socket.emit('service_data',{
+            user_id:user_id,
+            type:type,
+            message:message
         });
     }
 };
