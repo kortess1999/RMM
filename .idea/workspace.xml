@@ -20,14 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68433043-a71a-4e70-85fd-dca62b695fe0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/reports/servicesReport.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/reportsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/reportsList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/queries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/getReportByQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/methods/getReportByQuery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/visitsReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/reports/visitsReport.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/module.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/module.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/monitoring.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/monitoring.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/reports.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/reports.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,7 @@
       <list>
         <option value="Pug File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -58,6 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
@@ -151,7 +155,21 @@
       <workItem from="1621241403910" duration="499000" />
       <workItem from="1621263187896" duration="11749000" />
       <workItem from="1621331960153" duration="208000" />
-      <workItem from="1621351256298" duration="9782000" />
+      <workItem from="1621351256298" duration="9810000" />
+      <workItem from="1621407190990" duration="53000" />
+      <workItem from="1621416277983" duration="2724000" />
+      <workItem from="1621432314529" duration="1148000" />
+      <workItem from="1621499596057" duration="2603000" />
+      <workItem from="1621507153298" duration="97000" />
+      <workItem from="1621527866931" duration="1334000" />
+      <workItem from="1621589419121" duration="34000" />
+      <workItem from="1621672310443" duration="10236000" />
+      <workItem from="1621697775675" duration="4607000" />
+      <workItem from="1621760237433" duration="9711000" />
+      <workItem from="1621771877265" duration="2705000" />
+      <workItem from="1621847852030" duration="1193000" />
+      <workItem from="1621861954850" duration="2422000" />
+      <workItem from="1621939954854" duration="11574000" />
     </task>
     <task id="LOCAL-00001" summary="gitingore">
       <created>1616333248206</created>
@@ -244,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621277676712</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Добавлен отчёт по обслуживанию.">
+      <created>1621362895155</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621362895155</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +302,8 @@
     <MESSAGE value="Доделываем фронт+отчёты(без запросов)" />
     <MESSAGE value="Исправление ошибок в отчётах с отображением русских букв. Добавление отчёта по авариям." />
     <MESSAGE value="Добавление посещений, добавление отчёта по посещениям." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление посещений, добавление отчёта по посещениям." />
+    <MESSAGE value="Добавлен отчёт по обслуживанию." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен отчёт по обслуживанию." />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="147" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618059417064">
@@ -288,30 +314,34 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="309" y="270" key="EditFileWatcherDialog/0.0.1280.984@0.0.1280.984" timestamp="1616340608935" />
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom" timestamp="1621362566830">
+    <state width="1259" height="320" key="GridCell.Tab.0.bottom" timestamp="1621954869929">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
-    <state width="1259" height="286" key="GridCell.Tab.0.center" timestamp="1621362566830">
+    <state width="1259" height="320" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1621954869929" />
+    <state width="1259" height="320" key="GridCell.Tab.0.center" timestamp="1621954869929">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
-    <state width="1259" height="286" key="GridCell.Tab.0.left" timestamp="1621362566830">
+    <state width="1259" height="320" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1621954869929" />
+    <state width="1259" height="320" key="GridCell.Tab.0.left" timestamp="1621954869929">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
-    <state width="1259" height="286" key="GridCell.Tab.0.right" timestamp="1621362566830">
+    <state width="1259" height="320" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1621954869929" />
+    <state width="1259" height="320" key="GridCell.Tab.0.right" timestamp="1621954869929">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621362566830" />
+    <state width="1259" height="320" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1621954869929" />
     <state x="141" y="137" key="SettingsEditor" timestamp="1616333289449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1616333289449" />
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621277678135">
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2" timestamp="1621362897292">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621277678135" />
+    <state x="232" y="225" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1621362897292" />
+    <state x="296" y="226" key="run.anything.popup" timestamp="1621949249997">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="296" y="226" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1621949249997" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1620916202159">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

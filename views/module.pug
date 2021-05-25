@@ -1,25 +1,55 @@
-html
-    head
-    body
-        h1 Отправка пакета данных
-        form
-            input(type="text" id="login"  value="login")
-            input(type="text" id="password"  value="password")
-            input(type="button" id="LoginButton"  value="Login button")
-        h1 Отправка пакета данных
-        form
-            input(type="text" id="Temperature"  value="Temperature")
-            input(type="text" id="BelowWaterLevel"  value="BelowWaterLevel")
-            input(type="text" id="UpperWaterLevel"  value="UpperWaterLevel")
-            input(type="text" id="visits"  value="visits")
-            input(type="button" id="SendDataButton"  value="Send data button")
-        h1 Отправка данных об обслуживаниях
-        form
-            input(type="number" id="user_id"  value="")
-            input(type="text" id="type"  value="")
-            input(type="text" id="message"  value="")
-            input(type="button" id="SendServiceButton"  value="Send button")
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js')
-        script(src='http://code.jquery.com/jquery-latest.min.js')
-        script
-            |$(#{functions})
+extends layout
+block content
+    h1 Отправка пакета данных
+    form.bg-dark
+        div(class="form-row")
+            div(class="form-group col-md-4")
+                input(type="text" class="form-control" id="login"  value="1")
+                label(for="login" class="label") Логин модуля
+            div(class="form-group col-md-4")
+                input(type="text" class="form-control" id="password"  value="1")
+                label(for="password") Пароль модуля
+            div(class="form-group col-md-4")
+                input(type="button" class="btn btn-primary" id="LoginButton"  value="Авторизироваться")
+    h1 Отправка пакета данных
+    form.bg-dark
+        div(class="form-row")
+            div(class="form-group col-md-6")
+                label(for="Temperature" class="label") Температура
+                input(type="text" class="form-control" id="Temperature"  value="")
+            div(class="form-group col-md-6")
+                label(for="visits" class="label") Число посещений
+                input(type="text" class="form-control" id="visits"  value="")
+            div.col-md-1
+            div.col-md-8
+                div(class="form-check row")
+                    input(type="checkbox" class="form-check-input" name="BelowWaterLevel" id="BelowWaterLevel"  value="")
+                    label(for="BelowWaterLevel" class="form-check-label") Датчик наличия чистой воды
+                div(class="form-check row")
+                    input(type="checkbox" class="form-check-input" name="UpperWaterLevel" id="UpperWaterLevel"  value="")
+                    label(for="UpperWaterLevel" class="form-check-label") Датчик наполнения серой воды
+                div(class="form-check row")
+                    input(type="checkbox" class="form-check-input" name="IsBusy" id="IsBusy"  value="")
+                    label(for="IsBusy" class="form-check-label") Занято
+                div(class="form-check row")
+                    input(type="checkbox" class="form-check-input" name="IsWorking" id="IsWorking"  value="")
+                    label(for="IsWorking" class="form-check-label") Разрешено ли обслуживание
+            input(type="button" class="btn btn-primary" id="SendDataButton"  value="Отправить данные датчиков" align='center')
+    h1 Отправка данных об обслуживаниях
+    form.bg-dark
+        div(class="form-row")
+            div(class="form-group col-md-6")
+                input(type="number" class="form-control" id="user_id"  value="")
+                label(for="user_id" class="label") ID пользователя
+            div(class="form-group col-md-6")
+                input(type="text" class="form-control" id="type"  value="")
+                label(for="type" class="label") Тип обслуживания
+            div(class="form-group col-md-6")
+                input(type="text" class="form-control" id="message"  value="")
+                label(for="message" class="label") Дополнительная информация
+            div(class="form-group col-md-6")
+                input(type="button" class="btn btn-primary" id="SendServiceButton"  value="Отправка данных обслуживания")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+    script
+        |$(#{functions})

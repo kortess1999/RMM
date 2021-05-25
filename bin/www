@@ -78,16 +78,17 @@ io.on('connection', (client) => {
       lastContact:moment(),
       errorType:'Нет данных',
       state:{},
-      functions:{
-        relogin(){
-          this.module.emit('relogin');
-        },
-        checkState(){
-          this.module.emit('checkState');
-        },
-        restart(){
-          this.module.emit('restart');
-        }
+      relogin(){
+        this.module.emit('relogin');
+      },
+      checkState(){
+        this.module.emit('checkState');
+      },
+      restart(){
+        this.module.emit('restart');
+      },
+      relock(){
+        this.module.emit('relock');
       }
     };
   });
@@ -101,8 +102,10 @@ io.on('connection', (client) => {
     //Изменение состояния
     Tmodules[client.login].lastContact=moment();
     Tmodules[client.login].state.temperature=isNaN(parseInt(data.temperature))?null:parseInt(data.temperature);
-    Tmodules[client.login].state.belowWaterLevel=isNaN(parseInt(data.belowWaterLevel))?null:parseInt(data.belowWaterLevel);
-    Tmodules[client.login].state.upperWaterLevel=isNaN(parseInt(data.upperWaterLevel))?null:parseInt(data.upperWaterLevel);
+    Tmodules[client.login].state.belowWaterLevel=data.belowWaterLevel;
+    Tmodules[client.login].state.upperWaterLevel=data.upperWaterLevel;
+    Tmodules[client.login].state.IsWorking=data.IsWorking;
+    Tmodules[client.login].state.IsBusy=data.IsBusy;
     Tmodules[client.login].state.visits=isNaN(parseInt(data.visits))?null:parseInt(data.visits);
     //Проверка состояния модуля
     Tmodules[client.login].errorType="";
@@ -117,12 +120,10 @@ io.on('connection', (client) => {
     else Tmodules[client.login].errorType+='@Нет данных по температуре';
 
     //уровень воды
-    if([0,1].includes(Tmodules[client.login].state.belowWaterLevel)&&[0,1].includes(Tmodules[client.login].state.upperWaterLevel)) {
-      if (!Tmodules[client.login].state.belowWaterLevel) Tmodules[client.login].errorType += '@Мало воды';
-      if (Tmodules[client.login].state.upperWaterLevel) Tmodules[client.login].errorType += '@Избыток воды';
-    }
-    else Tmodules[client.login].errorType+='@Нет данных по уровню воды';
+    if(!Tmodules[client.login].state.belowWaterLevel) Tmodules[client.login].errorType += '@Мало чистой воды';
+    if(Tmodules[client.login].state.upperWaterLevel) Tmodules[client.login].errorType += '@Избыток серой воды';
     console.log(Tmodules[client.login].errorType);
+    console.log(Tmodules[client.login].state);
     //Проверка на ошибки и добавка их в БД
     ParseAndImportErrors(Tmodules[client.login]);
     //запрос на добавление в БД

@@ -1,15 +1,13 @@
 body {
   padding: 50px;
-  font-size: 45px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url(/bg_image.jpg);
+  font-size: 20px;
+  color: aliceblue;
 }
 label {
-  font-size: large;
   color: aliceblue;
 }
 dTable{
-  font-size: large;
   color: aliceblue;
 }
 form{
@@ -25,6 +23,19 @@ hr {
   overflow-y: scroll;
 }
 a {
-  color: #00B7FF;
-  font-size: large;
+  color: aliceblue;
+}
+Padd{
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+InpButton{
+  clear:both;
+  text-align:right;
+}
+alignIt{
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  color: darkgrey;
 }

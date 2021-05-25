@@ -15,7 +15,6 @@ router.get('/', async function(req, res, next) {
   }
   let modules=require('../bin/www');
   const moduleList = await DB.query(queries.modules());
-  console.log(moduleList);
   res.render('monitoring',{session:req.session,modules:modules,modules_list:moduleList});
 });
 router.get('/quit', function(req, res, next) {
@@ -41,5 +40,41 @@ router.post('/produce_report', async function (req, res, next) {
     res.end();
   }
 })
+router.get('/restart/:module_id', async function(req, res, next) {
+  if(!req.session.logged)
+  {
+    res.redirect('/login');
+    return
+  }
+  let modules=require('../bin/www');
+  let{module_id = 1} = req.params;
+  if(modules[module_id])
+    modules[module_id].restart();
+  res.redirect('/');
+});
+router.get('/lock/:module_id', async function(req, res, next) {
+  if(!req.session.logged)
+  {
+    res.redirect('/login');
+    return
+  }
+  let modules=require('../bin/www');
+  let{module_id = 1} = req.params;
+  if(modules[module_id])
+    modules[module_id].relock();
+  res.redirect('/');
+});
+router.get('/refresh/:module_id', async function(req, res, next) {
+  if(!req.session.logged)
+  {
+    res.redirect('/login');
+    return
+  }
+  let modules=require('../bin/www');
+  let{module_id = 1} = req.params;
+  if(modules[module_id])
+    modules[module_id].checkState();
+  res.redirect('/');
+});
 
 module.exports = router;
