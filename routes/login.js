@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let DB=require('../database/pbdb');
+const DB = require('../database/pbdb');
+const queries = require('../database/queries');
 async function checkPassword(login){
     let result=await DB.query(`SELECT password FROM users where log='${login}';`);
     return result;
@@ -29,9 +30,11 @@ router.post('/', async function(req, res, next) {
         if(password[0].password===req.body.pass)
         {
             req.session.logged=true;
+            let role = await DB.query(queries.getUserStatus({login:req.body.login}));
             req.session.user={
                 login:req.body.login,
-                password:req.body.pass
+                password:req.body.pass,
+                role: role[0].name
             };
             res.redirect('/');
             return

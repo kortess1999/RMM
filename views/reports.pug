@@ -51,7 +51,7 @@ block content
         |
         |
         |
-    nav(class="navbar navbar-dark bg-dark")
+    nav(class="navbar navbar-dark bg-dark marg Padd")
         div(class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none")
             svg(class="bi me-2" width="40" height="32")
                 svg(xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-diagram-3" viewBox="0 0 16 16")
@@ -71,33 +71,38 @@ block content
                     path(d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z")
             svg(class="bi me-2" width="16" height="16")
             | Отчёты
+        if session.user.role === 'Администратор'
+            a(href="/users" class="btn btn-secondary btn-lg")
+                svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16")
+                    path(d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z")
+                    path(d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z")
+                |  Управление пользователями
         a(class="btn btn-light" href="/quit") Выход
-    div.container.bg-dark
-        div.row
-            div.col
-                form(action="/produce_report" method="POST")
-                    label Параметры отчёта
-                    div(class="form-group flex-column")
-                        //Выбор отчёта
-                        div(class="btn-group btn-group-toggle" data-toggle="buttons")
-                            each rep in reports
-                                if rep === reports[0]
-                                    label(class="btn btn-secondary active")
-                                        input(type="radio" name="repType" id=rep autocomplete="off" value=rep checked)
-                                        |#{rep}
-                                else
-                                    label(class="btn btn-secondary")
-                                        input(type="radio" name="repType" id=rep autocomplete="off" value=rep)
-                                        |#{rep}
-                        hr
-                        div(class="form-group")
-                            input(type="text" class="form-control" id="date" name="date" placeholder="Дата" required)
-                            label(class="label" for="date") Период, за который передаются данные.
-                        hr
-                        div(class="form-group scrollList")
-                            each mod in modules
-                                div(class="form-check")
-                                    input(class="form-check-input" name='modules' type="checkbox" value=mod.id id=mod.id)
-                                    label(class="form-check-label" for=mod.id) Модуль №#{mod.id}. Адрес: #{mod.address}.
-                        hr
-                        button(type="submit" class="btn btn-primary my-1") Запросить отчёт
+    div
+        form.bg-dark(action="/produce_report" method="POST")
+            label.h2 Параметры отчёта
+            div(class="form-group flex-column")
+                //Выбор отчёта
+                div(class="btn-group btn-group-toggle" data-toggle="buttons")
+                    each rep in reports
+                        if rep === reports[0]
+                            label(class="btn btn-secondary active")
+                                input(type="radio" name="repType" id=rep autocomplete="off" value=rep checked)
+                                |#{rep}
+                        else
+                            label(class="btn btn-secondary")
+                                input(type="radio" name="repType" id=rep autocomplete="off" value=rep)
+                                |#{rep}
+                hr
+                div(class="form-group")
+                    input(type="text" class="form-control" id="date" name="date" placeholder="Дата" required)
+                    label(class="label" for="date") Период, за который передаются данные.
+                hr
+                div(class="form-group scrollList")
+                    each mod in modules
+                        div(class="form-check")
+                            input(class="form-check-input" name='modules' type="checkbox" value=mod.id id=mod.id)
+                            label(class="form-check-label" for=mod.id) Модуль №#{mod.id}. Адрес: #{mod.address}.
+                hr
+                div(align='right')
+                    button(type="submit" class="btn btn-primary my-1") Запросить отчёт
